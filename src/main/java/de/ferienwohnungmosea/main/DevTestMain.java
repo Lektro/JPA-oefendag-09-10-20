@@ -1,6 +1,7 @@
 package de.ferienwohnungmosea.main;
 
-import de.ferienwohnungmosea.models.WohnungMosea;
+import de.ferienwohnungmosea.model.Guest;
+import de.ferienwohnungmosea.model.WohnungMosea;
 
 import javax.persistence.*;
 
@@ -23,6 +24,15 @@ public class DevTestMain {
             wm.setGuestHasDog(false);
 
             em.persist(wm);
+
+            Guest g = new Guest();
+            g.setFirstName("Kevin");
+            g.setLastName("van der Kruk");
+            g.setAddress("Fabeltjes Laan 26 bus 3, 1000 Brussel");
+            g.setEmail("okedan@mailserver.de");
+            g.setTelephoneNumber("0032 3 666 55 99");
+            em.persist(g);
+
             tx.commit();
         } finally {
             if (em != null)

@@ -1,4 +1,4 @@
-package de.ferienwohnungmosea.models;
+package de.ferienwohnungmosea.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
