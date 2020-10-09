@@ -13,14 +13,12 @@ public class WohnungMosea {
     private int id;
 
     private boolean roomAvailable;
-
-    // name probably not needed some vars need to move over to guest
-    private String name;
+    // private String name;
     private int maxGuests;
     private int bookedGuests;
-    private boolean normalBreakfast;
-    private boolean deluxeBreakfast;
-    private boolean guestHasDog;
+    // private boolean normalBreakfast;
+    // private boolean deluxeBreakfast;
+    // private boolean guestHasDog;
     // private date?
 
     @OneToMany()
@@ -29,13 +27,8 @@ public class WohnungMosea {
     public WohnungMosea(int id, boolean roomAvailable, String name, int maxGuests, int bookedGuests, boolean normalBreakfast, boolean deluxeBreakfast, boolean guestHasDog) {
         this.id = id;
         this.roomAvailable = roomAvailable;
-        this.name = name;
         this.maxGuests = maxGuests;
         this.bookedGuests = bookedGuests;
-        this.normalBreakfast = normalBreakfast;
-        this.deluxeBreakfast = deluxeBreakfast;
-        this.guestHasDog = guestHasDog;
-
     }
 
     public void addGuest(Guest guest) {
@@ -46,11 +39,9 @@ public class WohnungMosea {
     public void removeGuest(Guest guest){
         guests.remove(guest);
         guest.setWohnungMosea(null);
-
     }
 
     public WohnungMosea() {
-
     }
 
     public List<Guest> getGuests() {
@@ -77,14 +68,6 @@ public class WohnungMosea {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getMaxGuests() {
         return maxGuests;
     }
@@ -99,30 +82,6 @@ public class WohnungMosea {
 
     public void setBookedGuests(int bookedGuests) {
         this.bookedGuests = bookedGuests;
-    }
-
-    public boolean isNormalBreakfast() {
-        return normalBreakfast;
-    }
-
-    public void setNormalBreakfast(boolean normalBreakfast) {
-        this.normalBreakfast = normalBreakfast;
-    }
-
-    public boolean isDeluxeBreakfast() {
-        return deluxeBreakfast;
-    }
-
-    public void setDeluxeBreakfast(boolean deluxeBreakfast) {
-        this.deluxeBreakfast = deluxeBreakfast;
-    }
-
-    public boolean isGuestHasDog() {
-        return guestHasDog;
-    }
-
-    public void setGuestHasDog(boolean guestHasDog) {
-        this.guestHasDog = guestHasDog;
     }
 
     @Override
@@ -143,12 +102,8 @@ public class WohnungMosea {
         return "WohnungMosea{" +
                 "id=" + id +
                 ", roomAvailable=" + roomAvailable +
-                ", name='" + name + '\'' +
                 ", maxGuests=" + maxGuests +
                 ", bookedGuests=" + bookedGuests +
-                ", normalBreakfast=" + normalBreakfast +
-                ", deluxeBreakfast=" + deluxeBreakfast +
-                ", guestHasDog=" + guestHasDog +
                 ", guests=" + guests +
                 '}';
     }

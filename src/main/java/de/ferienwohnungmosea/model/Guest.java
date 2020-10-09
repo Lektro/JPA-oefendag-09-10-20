@@ -13,20 +13,26 @@ public class Guest {
     private boolean reservationValid;
     private String firstName;
     private String lastName;
+
+    // separate class for address details?
     private String address;
+
     private String email;
     private String telephoneNumber;
+
+    private boolean dogOwner;
+    // separate class for different types of breakfast?
+    private boolean breakfast;
+    // if breakfast is true read back the guest choice standard or deluxe
+
 
     @ManyToOne
     private WohnungMosea wohnungMosea;
 
-
-    public Guest (int id, boolean reservationValid, String firstName, String lastName, String address, String email, String telephoneNumber){
-
+    public Guest (int id, boolean reservationValid, String firstName, String lastName, String address, String email, String telephoneNumber) {
     }
 
     public Guest () {
-
     }
 
     public WohnungMosea getWohnungMosea() {
