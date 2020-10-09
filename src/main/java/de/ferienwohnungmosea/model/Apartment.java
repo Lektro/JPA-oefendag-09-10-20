@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class WohnungMosea {
+public class Apartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class WohnungMosea {
     @OneToMany()
     private List<Guest> guests = new ArrayList<>();
 
-    public WohnungMosea(int id, boolean roomAvailable, String name, int maxGuests, int bookedGuests, boolean normalBreakfast, boolean deluxeBreakfast, boolean guestHasDog) {
+    public Apartment(int id, boolean roomAvailable, String name, int maxGuests, int bookedGuests, boolean normalBreakfast, boolean deluxeBreakfast, boolean guestHasDog) {
         this.id = id;
         this.roomAvailable = roomAvailable;
         this.maxGuests = maxGuests;
@@ -33,15 +33,15 @@ public class WohnungMosea {
 
     public void addGuest(Guest guest) {
         guests.add(guest);
-        guest.setWohnungMosea(this);
+        guest.setApartment(this);
     }
 
     public void removeGuest(Guest guest){
         guests.remove(guest);
-        guest.setWohnungMosea(null);
+        guest.setApartment(null);
     }
 
-    public WohnungMosea() {
+    public Apartment() {
     }
 
     public List<Guest> getGuests() {
@@ -87,8 +87,8 @@ public class WohnungMosea {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof WohnungMosea)) return false;
-        WohnungMosea that = (WohnungMosea) o;
+        if (!(o instanceof Apartment)) return false;
+        Apartment that = (Apartment) o;
         return getId() == that.getId();
     }
 
@@ -99,7 +99,7 @@ public class WohnungMosea {
 
     @Override
     public String toString() {
-        return "WohnungMosea{" +
+        return "Apartment{" +
                 "id=" + id +
                 ", roomAvailable=" + roomAvailable +
                 ", maxGuests=" + maxGuests +

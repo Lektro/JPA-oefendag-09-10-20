@@ -10,6 +10,7 @@ public class Guest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // reservation valid needs dates?
     private boolean reservationValid;
     private String firstName;
     private String lastName;
@@ -27,7 +28,7 @@ public class Guest {
 
 
     @ManyToOne
-    private WohnungMosea wohnungMosea;
+    private Apartment apartment;
 
     public Guest (int id, boolean reservationValid, String firstName, String lastName, String address, String email, String telephoneNumber) {
     }
@@ -35,12 +36,12 @@ public class Guest {
     public Guest () {
     }
 
-    public WohnungMosea getWohnungMosea() {
-        return wohnungMosea;
+    public Apartment getApartment() {
+        return apartment;
     }
 
-    public void setWohnungMosea(WohnungMosea wohnungMosea) {
-        this.wohnungMosea = wohnungMosea;
+    public void setApartment(Apartment apartment) {
+        this.apartment = apartment;
     }
 
     public boolean isReservationValid() {

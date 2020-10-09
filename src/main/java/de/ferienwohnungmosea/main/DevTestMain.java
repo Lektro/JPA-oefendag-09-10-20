@@ -1,7 +1,8 @@
 package de.ferienwohnungmosea.main;
 
+import de.ferienwohnungmosea.model.Apartment;
 import de.ferienwohnungmosea.model.Guest;
-import de.ferienwohnungmosea.model.WohnungMosea;
+
 import javax.persistence.*;
 
 public class DevTestMain {
@@ -15,13 +16,10 @@ public class DevTestMain {
             EntityTransaction tx = em.getTransaction();
             tx.begin();
 
-            WohnungMosea wm = new WohnungMosea();
-            wm.setName("Ferienwohnung Mosea");
-            wm.setBookedGuests(1);
+            Apartment wm = new Apartment();
+            wm.setBookedGuests(2);
             wm.setMaxGuests(4);
-            wm.setDeluxeBreakfast(true);
-            wm.setGuestHasDog(false);
-            wm.setRoomAvailable(true);
+            wm.setRoomAvailable(false);
 
             Guest g = new Guest();
             g.setFirstName("Kevin");
@@ -30,7 +28,7 @@ public class DevTestMain {
             g.setEmail("okedan@mailserver.de");
             g.setTelephoneNumber("0032 3 666 55 99");
             g.setReservationValid(true);
-            g.setWohnungMosea(wm);
+            g.setApartment(wm);
             wm.addGuest(g);
 
             Guest gOne = new Guest ();
