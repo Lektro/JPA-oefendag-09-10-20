@@ -5,5 +5,4 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
              http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
 
-
 </entity-mappings>

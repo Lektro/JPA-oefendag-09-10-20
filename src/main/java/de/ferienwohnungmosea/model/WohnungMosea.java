@@ -1,21 +1,30 @@
 package de.ferienwohnungmosea.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-@Entity (name = "apartment")
+@Entity
 public class WohnungMosea {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private boolean roomAvailable;
+
+    // name probably not needed
     private String name;
     private int maxGuests;
     private int bookedGuests;
     private boolean normalBreakfast;
     private boolean deluxeBreakfast;
     private boolean guestHasDog;
+    // private date?
+
+    @OneToMany()
+    private List<Guest> guests = new ArrayList<>();
 
     public WohnungMosea(int id, boolean roomAvailable, String name, int maxGuests, int bookedGuests, boolean normalBreakfast, boolean deluxeBreakfast, boolean guestHasDog) {
         this.id = id;
@@ -29,8 +38,26 @@ public class WohnungMosea {
 
     }
 
+    public void addGuest(Guest guest) {
+        guests.add(guest);
+        guest.setWohnungMosea(this);
+    }
+
+    public void removeGuest(Guest guest){
+        guests.remove(guest);
+        guest.setWohnungMosea(null);
+
+    }
     public WohnungMosea() {
 
+    }
+
+    public List<Guest> getGuests() {
+        return guests;
+    }
+
+    public void setGuests(List<Guest> guests) {
+        this.guests = guests;
     }
 
     public boolean isRoomAvailable() {
@@ -121,6 +148,7 @@ public class WohnungMosea {
                 ", normalBreakfast=" + normalBreakfast +
                 ", deluxeBreakfast=" + deluxeBreakfast +
                 ", guestHasDog=" + guestHasDog +
+                ", guests=" + guests +
                 '}';
     }
 }

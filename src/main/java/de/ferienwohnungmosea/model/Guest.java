@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Guest {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private boolean reservationValid;
@@ -17,11 +17,24 @@ public class Guest {
     private String email;
     private String telephoneNumber;
 
+    @ManyToOne
+    private WohnungMosea wohnungMosea;
+
+
     public Guest (int id, boolean reservationValid, String firstName, String lastName, String address, String email, String telephoneNumber){
 
     }
+
     public Guest () {
 
+    }
+
+    public WohnungMosea getWohnungMosea() {
+        return wohnungMosea;
+    }
+
+    public void setWohnungMosea(WohnungMosea wohnungMosea) {
+        this.wohnungMosea = wohnungMosea;
     }
 
     public boolean isReservationValid() {
