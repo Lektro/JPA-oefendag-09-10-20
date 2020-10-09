@@ -23,18 +23,23 @@ public class DevTestMain {
             wm.setGuestHasDog(false);
             wm.setRoomAvailable(true);
 
-            em.persist(wm);
-
             Guest g = new Guest();
-            wm.addGuest(g);
             g.setFirstName("Kevin");
             g.setLastName("van der Kruk");
             g.setAddress("Fabeltjes Laan 26 bus 3, 1000 Brussel");
             g.setEmail("okedan@mailserver.de");
             g.setTelephoneNumber("0032 3 666 55 99");
             g.setReservationValid(true);
+            wm.addGuest(g);
+
+            Guest gOne = new Guest ();
+            gOne.setFirstName("Joey");
+            gOne.setReservationValid(true);
+            wm.addGuest(gOne);
 
             em.persist(g);
+            em.persist(gOne);
+            em.persist(wm);
 
             tx.commit();
         } finally {

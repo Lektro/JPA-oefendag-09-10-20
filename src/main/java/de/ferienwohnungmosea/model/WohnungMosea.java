@@ -48,6 +48,7 @@ public class WohnungMosea {
         guest.setWohnungMosea(null);
 
     }
+
     public WohnungMosea() {
 
     }
