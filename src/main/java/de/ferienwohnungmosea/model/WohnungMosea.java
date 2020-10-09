@@ -14,7 +14,7 @@ public class WohnungMosea {
 
     private boolean roomAvailable;
 
-    // name probably not needed
+    // name probably not needed some vars need to move over to guest
     private String name;
     private int maxGuests;
     private int bookedGuests;
