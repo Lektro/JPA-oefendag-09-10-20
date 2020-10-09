@@ -1,9 +1,6 @@
 package de.ferienwohnungmosea.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -12,17 +9,27 @@ public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    private boolean reservationValid;
     private String firstName;
     private String lastName;
     private String address;
     private String email;
     private String telephoneNumber;
 
-    public Guest (int id, String firstName, String lastName, String address, String email, String telephoneNumber){
+    public Guest (int id, boolean reservationValid, String firstName, String lastName, String address, String email, String telephoneNumber){
 
     }
     public Guest () {
 
+    }
+
+    public boolean isReservationValid() {
+        return reservationValid;
+    }
+
+    public void setReservationValid(boolean reservationValid) {
+        this.reservationValid = reservationValid;
     }
 
     public int getId() {

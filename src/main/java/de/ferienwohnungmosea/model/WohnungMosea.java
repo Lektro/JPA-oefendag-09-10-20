@@ -1,16 +1,15 @@
 package de.ferienwohnungmosea.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
-@Entity (name = "Apartment")
+@Entity (name = "apartment")
 public class WohnungMosea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private boolean roomAvailable;
     private String name;
     private int maxGuests;
     private int bookedGuests;
@@ -18,8 +17,9 @@ public class WohnungMosea {
     private boolean deluxeBreakfast;
     private boolean guestHasDog;
 
-    public WohnungMosea(int id, String name, int maxGuests, int bookedGuests, boolean normalBreakfast, boolean deluxeBreakfast, boolean guestHasDog) {
+    public WohnungMosea(int id, boolean roomAvailable, String name, int maxGuests, int bookedGuests, boolean normalBreakfast, boolean deluxeBreakfast, boolean guestHasDog) {
         this.id = id;
+        this.roomAvailable = roomAvailable;
         this.name = name;
         this.maxGuests = maxGuests;
         this.bookedGuests = bookedGuests;
@@ -31,6 +31,14 @@ public class WohnungMosea {
 
     public WohnungMosea() {
 
+    }
+
+    public boolean isRoomAvailable() {
+        return roomAvailable;
+    }
+
+    public void setRoomAvailable(boolean roomAvailable) {
+        this.roomAvailable = roomAvailable;
     }
 
     public int getId() {
@@ -106,6 +114,7 @@ public class WohnungMosea {
     public String toString() {
         return "WohnungMosea{" +
                 "id=" + id +
+                ", roomAvailable=" + roomAvailable +
                 ", name='" + name + '\'' +
                 ", maxGuests=" + maxGuests +
                 ", bookedGuests=" + bookedGuests +

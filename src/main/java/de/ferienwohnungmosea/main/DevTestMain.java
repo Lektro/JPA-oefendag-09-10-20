@@ -22,6 +22,7 @@ public class DevTestMain {
             wm.setMaxGuests(4);
             wm.setDeluxeBreakfast(true);
             wm.setGuestHasDog(false);
+            wm.setRoomAvailable(true);
 
             em.persist(wm);
 
@@ -31,6 +32,7 @@ public class DevTestMain {
             g.setAddress("Fabeltjes Laan 26 bus 3, 1000 Brussel");
             g.setEmail("okedan@mailserver.de");
             g.setTelephoneNumber("0032 3 666 55 99");
+            g.setReservationValid(true);
             em.persist(g);
 
             tx.commit();
