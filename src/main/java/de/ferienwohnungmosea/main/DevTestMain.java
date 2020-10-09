@@ -30,6 +30,7 @@ public class DevTestMain {
             g.setEmail("okedan@mailserver.de");
             g.setTelephoneNumber("0032 3 666 55 99");
             g.setReservationValid(true);
+            g.setWohnungMosea(wm);
             wm.addGuest(g);
 
             Guest gOne = new Guest ();
