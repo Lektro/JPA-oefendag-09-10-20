@@ -1,6 +1,7 @@
 package de.ferienwohnungmosea.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -10,8 +11,8 @@ public class Guest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    // reservation valid needs dates?
-    private boolean reservationValid;
+    private LocalDateTime arrivalDate;
+    private LocalDateTime departureDate;
     private String firstName;
     private String lastName;
 
@@ -22,14 +23,9 @@ public class Guest {
     private String telephoneNumber;
 
     private boolean dogOwner;
-    // separate class for different types of breakfast?
-    // if breakfast is true read back the guest choice standard or deluxe
-
-    // still to add
-    // private boolean normalBreakfast;
-    // private boolean deluxeBreakfast;
-    // private boolean guestHasDog;
-
+    private boolean normalBreakfast;
+    private boolean deluxeBreakfast;
+    private float totalPrice;
 
     @ManyToOne
     private Apartment apartment;
@@ -38,6 +34,46 @@ public class Guest {
     }
 
     public Guest () {
+    }
+
+    public LocalDateTime getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(LocalDateTime arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public LocalDateTime getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDateTime departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public boolean isNormalBreakfast() {
+        return normalBreakfast;
+    }
+
+    public void setNormalBreakfast(boolean normalBreakfast) {
+        this.normalBreakfast = normalBreakfast;
+    }
+
+    public boolean isDeluxeBreakfast() {
+        return deluxeBreakfast;
+    }
+
+    public void setDeluxeBreakfast(boolean deluxeBreakfast) {
+        this.deluxeBreakfast = deluxeBreakfast;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public boolean isDogOwner() {
@@ -54,14 +90,6 @@ public class Guest {
 
     public void setApartment(Apartment apartment) {
         this.apartment = apartment;
-    }
-
-    public boolean isReservationValid() {
-        return reservationValid;
-    }
-
-    public void setReservationValid(boolean reservationValid) {
-        this.reservationValid = reservationValid;
     }
 
     public int getId() {
@@ -129,11 +157,18 @@ public class Guest {
     public String toString() {
         return "Guest{" +
                 "id=" + id +
+                ", arrivalDate=" + arrivalDate +
+                ", departureDate=" + departureDate +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
+                ", dogOwner=" + dogOwner +
+                ", normalBreakfast=" + normalBreakfast +
+                ", deluxeBreakfast=" + deluxeBreakfast +
+                ", totalPrice=" + totalPrice +
+                ", apartment=" + apartment +
                 '}';
     }
 }

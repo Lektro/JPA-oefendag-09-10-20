@@ -12,14 +12,12 @@ public class Apartment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private boolean roomAvailable;
-    // private String name;
+    // In case there will be more apartments in the future
+    private String name;
     private int maxGuests;
     private int bookedGuests;
-    // private boolean normalBreakfast;
-    // private boolean deluxeBreakfast;
-    // private boolean guestHasDog;
-    // private date?
+    private boolean roomAvailable;
+
 
     @OneToMany()
     private List<Guest> guests = new ArrayList<>();
@@ -29,6 +27,14 @@ public class Apartment {
         this.roomAvailable = roomAvailable;
         this.maxGuests = maxGuests;
         this.bookedGuests = bookedGuests;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void addGuest(Guest guest) {
@@ -101,9 +107,10 @@ public class Apartment {
     public String toString() {
         return "Apartment{" +
                 "id=" + id +
-                ", roomAvailable=" + roomAvailable +
+                ", name='" + name + '\'' +
                 ", maxGuests=" + maxGuests +
                 ", bookedGuests=" + bookedGuests +
+                ", roomAvailable=" + roomAvailable +
                 ", guests=" + guests +
                 '}';
     }
