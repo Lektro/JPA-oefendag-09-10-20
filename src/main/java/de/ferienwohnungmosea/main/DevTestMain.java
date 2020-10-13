@@ -31,8 +31,10 @@ public class DevTestMain {
             g.setTelephoneNumber("0032 3 666 55 99");
             g.setDogOwner(false);
             g.setDeluxeBreakfast(true);
-            LocalDate t = LocalDate.of(2020,10,25);
-            g.setArrivalDate(t);
+            LocalDate arrival = LocalDate.of(2020,10,25);
+            LocalDate departure =  LocalDate.of(2020,11,02);
+            g.setArrivalDate(arrival);
+            g.setDepartureDate(departure);
             g.setApartment(wm);
             wm.addGuest(g);
 
