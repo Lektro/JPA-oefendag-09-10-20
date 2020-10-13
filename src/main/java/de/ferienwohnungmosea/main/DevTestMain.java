@@ -28,11 +28,13 @@ public class DevTestMain {
             g.setEmail("okedan@mailserver.de");
             g.setTelephoneNumber("0032 3 666 55 99");
             g.setReservationValid(true);
+            g.setDogOwner(false);
             g.setApartment(wm);
             wm.addGuest(g);
 
             Guest gOne = new Guest ();
             gOne.setFirstName("Joey");
+            gOne.setDogOwner(true);
             gOne.setReservationValid(true);
             wm.addGuest(gOne);
 

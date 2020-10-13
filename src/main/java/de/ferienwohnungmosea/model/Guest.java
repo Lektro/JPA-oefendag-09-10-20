@@ -23,8 +23,12 @@ public class Guest {
 
     private boolean dogOwner;
     // separate class for different types of breakfast?
-    private boolean breakfast;
     // if breakfast is true read back the guest choice standard or deluxe
+
+    // still to add
+    // private boolean normalBreakfast;
+    // private boolean deluxeBreakfast;
+    // private boolean guestHasDog;
 
 
     @ManyToOne
@@ -34,6 +38,14 @@ public class Guest {
     }
 
     public Guest () {
+    }
+
+    public boolean isDogOwner() {
+        return dogOwner;
+    }
+
+    public void setDogOwner(boolean dogOwner) {
+        this.dogOwner = dogOwner;
     }
 
     public Apartment getApartment() {
