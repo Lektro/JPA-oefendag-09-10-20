@@ -1,32 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.min.css" />
 </head>
     <body>
+    <div th:value="form">
     <form>
         <div class="form-group">
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name">
+                </div>
             </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Address">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Telephone">
+                </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail address">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    <label class="mr-sm-2" for="inlineFormCustomSelect">Breakfast Choice</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected>Choose...</option>
+                        <option value="1">Standard Breakfast</option>
+                        <option value="2">Deluxe Breakfast</option>
+                        <option value="3">No Breakfast</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    <label class="mr-sm-2" for="inlineFormCustomSelect">Pet Options</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected>Choose...</option>
+                        <option value="1">I have a pet</option>
+                        <option value="2">I don't have a pet</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    <label class="mr-sm-2" for="inlineFormCustomSelect">Payment</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected>Choose...</option>
+                        <option value="1">Cash at the door</option>
+                        <option value="2">Bank Transfer</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-dark">Submit</button>
         </div>
-
-        <div class="row">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-dark">Submit</button>
-    </div>
     </form>
 </body>
 </html>

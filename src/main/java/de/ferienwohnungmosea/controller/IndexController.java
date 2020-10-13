@@ -1,2 +1,4 @@
-package de.ferienwohnungmosea.controller;public class IndexController {
+package de.ferienwohnungmosea.controller;
+
+public class IndexController {
 }
