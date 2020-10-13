@@ -4,6 +4,7 @@ import de.ferienwohnungmosea.model.Apartment;
 import de.ferienwohnungmosea.model.Guest;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 public class DevTestMain {
     public static void main(String[] args) {
@@ -27,15 +28,15 @@ public class DevTestMain {
             g.setAddress("Fabeltjes Laan 26 bus 3, 1000 Brussel");
             g.setEmail("okedan@mailserver.de");
             g.setTelephoneNumber("0032 3 666 55 99");
-            g.setReservationValid(true);
             g.setDogOwner(false);
+            g.setDeluxeBreakfast(true);
+            g.setArrivalDate(2020-10-13).atStartOfDay();
             g.setApartment(wm);
             wm.addGuest(g);
 
             Guest gOne = new Guest ();
             gOne.setFirstName("Joey");
             gOne.setDogOwner(true);
-            gOne.setReservationValid(true);
             wm.addGuest(gOne);
 
             em.persist(g);

@@ -1,7 +1,10 @@
 package de.ferienwohnungmosea.model;
 
 import javax.persistence.*;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -11,8 +14,8 @@ public class Guest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private LocalDateTime arrivalDate;
-    private LocalDateTime departureDate;
+    private LocalDate arrivalDate;
+    private LocalDate departureDate;
     private String firstName;
     private String lastName;
 
@@ -36,19 +39,19 @@ public class Guest {
     public Guest () {
     }
 
-    public LocalDateTime getArrivalDate() {
+    public LocalDate getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(LocalDateTime arrivalDate) {
+    public void setArrivalDate(LocalDate arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public LocalDateTime getDepartureDate() {
+    public LocalDate getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(LocalDateTime departureDate) {
+    public void setDepartureDate(LocalDate departureDate) {
         this.departureDate = departureDate;
     }
 
