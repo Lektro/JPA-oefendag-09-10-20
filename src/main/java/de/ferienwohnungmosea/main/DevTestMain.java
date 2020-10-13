@@ -5,6 +5,7 @@ import de.ferienwohnungmosea.model.Guest;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDate;
 
 public class DevTestMain {
     public static void main(String[] args) {
@@ -30,7 +31,8 @@ public class DevTestMain {
             g.setTelephoneNumber("0032 3 666 55 99");
             g.setDogOwner(false);
             g.setDeluxeBreakfast(true);
-            g.setArrivalDate(2020-10-13).atStartOfDay();
+            LocalDate t = LocalDate.of(2020,10,25);
+            g.setArrivalDate(t);
             g.setApartment(wm);
             wm.addGuest(g);
 
