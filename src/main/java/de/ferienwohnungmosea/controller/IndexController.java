@@ -21,14 +21,13 @@ public class IndexController {
     GuestService guestService;
 
     @GetMapping("/")
-    public ModelAndView guestForm (Model model) {
+    public ModelAndView guest (Model model) {
         model.addAttribute("guest", new Guest());
-        return new ModelAndView("addGuest");
+        return new ModelAndView("/");
     }
     @PostMapping("/")
-    public ModelAndView addEmployee(@ModelAttribute("employee") Guest guest) {
+    public ModelAndView addGuest(@ModelAttribute("guest") Guest guest) {
         guestService.addGuest(guest);
         return new ModelAndView("redirect:/addGuest");
     }
-
 }
