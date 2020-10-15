@@ -2,9 +2,13 @@ package de.ferienwohnungmosea.controller;
 
 
 import de.ferienwohnungmosea.model.Guest;
+import de.ferienwohnungmosea.services.GuestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,12 +17,18 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping({ "/", "/index" })
 public class IndexController {
 
+    @Autowired
+    GuestService guestService;
 
-    @GetMapping("/addGuest")
+    @GetMapping("/")
     public ModelAndView guestForm (Model model) {
-        model.addAttribute("addGuest", new Guest());
+        model.addAttribute("guest", new Guest());
         return new ModelAndView("addGuest");
     }
-
+    @PostMapping("/")
+    public ModelAndView addEmployee(@ModelAttribute("employee") Guest guest) {
+        guestService.addGuest(guest);
+        return new ModelAndView("redirect:/addGuest");
+    }
 
 }
