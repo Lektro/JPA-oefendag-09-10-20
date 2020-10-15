@@ -1,14 +1,16 @@
-package de.ferienwohnungmosea.main;
+package de.ferienwohnungmosea.dao;
 
 import de.ferienwohnungmosea.model.Apartment;
 import de.ferienwohnungmosea.model.Guest;
 
-import javax.persistence.*;
-import java.time.Instant;
-import java.time.LocalDate;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
-public class DevTestMain {
-    public static void main(String[] args) {
+public class GuestDAOImpl {
+
+    public void addGuest(Guest guest){
         EntityManagerFactory emf = null;
         EntityManager em = null;
 

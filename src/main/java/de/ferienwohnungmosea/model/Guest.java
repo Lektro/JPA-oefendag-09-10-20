@@ -14,8 +14,11 @@ public class Guest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private LocalDate arrivalDate;
-    private LocalDate departureDate;
+
+    private String arrivalDate;
+    private String departureDate;
+    // private LocalDate arrivalDate;
+    // private LocalDate departureDate;
     private String firstName;
     private String lastName;
 
@@ -39,19 +42,19 @@ public class Guest {
     public Guest () {
     }
 
-    public LocalDate getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(LocalDate arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public LocalDate getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(LocalDate departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 
