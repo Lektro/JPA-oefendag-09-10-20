@@ -23,20 +23,40 @@
                 <input type='text' class="form-control" id='datepicker' style='width: 300px;' > <br>
                 <input type='text' class="form-control" data-provide="datepicker" style='width: 300px;' >
             </div>
-
-            <!-- Script -->
-            <script type="text/javascript">
-$(document).ready(function(){
- $('#datepicker').datepicker({
-    "dateFormat" : "dd-mm-yyyy"
-
- });
-});
-</script>
-
         </div>
+
+        <div class="container">
+            <form method="post" th:object="${dateRange}">
+                <div class="form-group row">
+                    <div class="col-md-4 mt-5">
+                        <label for="dateRange">Date of birth</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="dateRange" autocomplete="off"/>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="dateFrom" th:object="${dateFrom}" th:attr="name='dateFrom'" />
+                    <input type="hidden" name="dateTo" th:object="${dateTo}" th:attr="name='dateTo'"/>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+        </div>
+
+
     </div>
 </div>
 </body>
+<script>
+    var $dateRange = $('#dateRange');
 
+    $dateRange.daterangepicker();
+    $dateRange.on('apply.daterangepicker', function (ev, picker) {
+        $('input[name="dateFrom"]').val(picker.startDate.format('DD/MM/YYYY'));
+        $('input[name="dateTo"]').val(picker.endDate.format('DD/MM/YYYY'));
+    });
+</script>
 </html>
