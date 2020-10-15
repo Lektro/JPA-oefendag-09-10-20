@@ -2,13 +2,16 @@ package de.ferienwohnungmosea.dao;
 
 import de.ferienwohnungmosea.model.Apartment;
 import de.ferienwohnungmosea.model.Guest;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+@Repository
 public class GuestDAOImpl {
+
 
     public void addGuest(Guest guest){
         EntityManagerFactory emf = null;

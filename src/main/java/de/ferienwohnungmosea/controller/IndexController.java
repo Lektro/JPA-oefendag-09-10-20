@@ -14,10 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 
 
-    @GetMapping("/guest")
+    @GetMapping("/addGuest")
     public ModelAndView guestForm (Model model) {
-        model.addAttribute("guest", new Guest());
-        return new ModelAndView("index");
+        model.addAttribute("addGuest", new Guest());
+        return new ModelAndView("addGuest");
     }
 
 
