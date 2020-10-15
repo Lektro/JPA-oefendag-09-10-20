@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Date;
 
 @Controller
-@RequestMapping({ "/" })
+@RequestMapping({ "/", "/index" })
 public class IndexController {
 
     @GetMapping
