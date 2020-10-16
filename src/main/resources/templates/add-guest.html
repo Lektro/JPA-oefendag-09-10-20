@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+
 </head>
 <body>
-<p>addguest page</p>
-<p>Goto FORM? <a href="/form">Here</a></p>
+<form action="#" th:action="@{/addguest}" th:object="${guest}" method="post">
 
+</form>
 </body>
 </html>

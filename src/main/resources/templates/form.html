@@ -7,16 +7,18 @@
 </head>
 <body>
 <div th:value="form">
-    <div class="form-group">
+    <form action="#" th:action="@{/addguest}" th:object="${guest}" method="post">
         <div class="row">
             <div class="col">
                 <input type="text" class="form-control" placeholder="First name">
             </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
-            </div>
+            <label for="firstName">First Name</label>
+            <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+            <span th:if="${#fields.hasErrors('guest')}" th:errors="*{guest}"></span>
+
+            <input type="submit" value="Add User">
         </div>
-    </div>
+
 </div>
 </body>
 </html>
