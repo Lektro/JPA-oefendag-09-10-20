@@ -1,10 +1,8 @@
 package de.ferienwohnungmosea.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 
 @Controller
 public class IndexController {
@@ -14,10 +12,4 @@ public class IndexController {
         model.addAttribute("name", name);
         return "greeting";
     }
-
-/*    @GetMapping("/addGuest")
-    public ModelAndView addGuest (Model model) {
-        model.addAttribute("guest", new Guest());
-        return new ModelAndView("addGuest");
-    }*/
 }
