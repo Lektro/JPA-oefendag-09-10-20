@@ -17,8 +17,14 @@ public class IndexController {
     GuestService guestService;
 
     @GetMapping("/addGuest")
+    public String greeting(@RequestParam(name="name", required = false, defaultValue = "NOOB")String name, Model model) {
+        model.addAttribute("name", name);
+        return "greeting";
+    }
+
+/*    @GetMapping("/addGuest")
     public ModelAndView addGuest (Model model) {
         model.addAttribute("guest", new Guest());
         return new ModelAndView("addGuest");
-    }
+    }*/
 }
