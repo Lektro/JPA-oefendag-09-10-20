@@ -17,7 +17,7 @@ public class IndexController {
     GuestService guestService;
 
     @GetMapping("/addGuest")
-    public String greeting(@RequestParam(name="name", required = false, defaultValue = "NOOB")String name, Model model) {
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="NOOB")String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
     }
