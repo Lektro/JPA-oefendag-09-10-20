@@ -12,8 +12,5 @@ public class GuestController {
     public ModelAndView showAddGuest (ModelMap modelMap) {
         return new ModelAndView("addguest");
     }
-    @GetMapping("/form")
-    public ModelAndView showForm (ModelMap modelMap) {
-        return new ModelAndView("form");
-    }
+
 }
